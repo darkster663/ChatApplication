@@ -8,6 +8,7 @@ public class ClientPeer
 {
     String userName;
     Socket soc;
+    int a;
    public ClientPeer(String u, Socket s)
     {
         userName = u;
