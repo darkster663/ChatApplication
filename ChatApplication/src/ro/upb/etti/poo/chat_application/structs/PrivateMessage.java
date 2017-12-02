@@ -2,6 +2,7 @@ package ro.upb.etti.poo.chat_application.structs;
 public class PrivateMessage extends Message
 {
     private String mRecipient;
+    int a;
     
     public PrivateMessage(String recipient, String sender,String content)
     {
