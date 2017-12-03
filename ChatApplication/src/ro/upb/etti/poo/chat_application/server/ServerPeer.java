@@ -1,4 +1,4 @@
-package ro.upb.etti.poo.chat_application.server.config;
+package ro.upb.etti.poo.chat_application.server;
 import java.net.Socket;
 import java.io.IOException;
 import java.io.ObjectInputStream;
