@@ -13,16 +13,19 @@ public class ServerPeer
     
     public void run() throws IOException, ClassNotFoundException 
     {
-        while (soc.isConnected())
+        try 
         {
-            try (ObjectInputStream inputStream = new ObjectInputStream (soc.getInputStream()))
+            ObjectInputStream input = new ObjectInputStream(soc.getInputStream());
+            
+            while (true)
             {
-                Object m = inputStream.readObject();
-                Message temp =(Message) m;
-                System.out.println(temp.toString());
-                
-                
+                System.out.println(input.readObject().toString().trim());
             }
         }
+        catch (Exception e)
+        {
+            
+        }
+        
     }
 }

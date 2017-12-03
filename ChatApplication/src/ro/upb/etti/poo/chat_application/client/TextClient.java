@@ -4,20 +4,25 @@ import java.net.Socket;
 import java.net.InetAddress;
 public class TextClient
 {
+    private static final String HOST = "127.0.0.1";
+    private static final int PORT = 9000;
     public static void main (String args[])
     {
         Scanner input = new Scanner(System.in);
         String userName = input.nextLine();
+        
         try
         {
-            Socket soc = new Socket(InetAddress.getLocalHost(),9000);
+            Socket soc = new Socket(HOST,PORT);
             ClientPeer peer = new ClientPeer(userName,soc);
-            String ok = "ok";
-            while (ok.equals("ok"))
+            while (true)
             {
                 String temp = input.nextLine();
                 if (temp.charAt(0)=='/' && temp.charAt(1)=='q')
-                    ok = "exit";
+                {
+                    soc.close();
+                    break;
+                }
                 else if (temp.charAt(0)=='/' && temp.charAt(1)=='w')
                 {
                     String[] array = temp.split(" ");
@@ -29,6 +34,7 @@ public class TextClient
         }
         catch (Exception e)
         {
+        
         }
 
         
